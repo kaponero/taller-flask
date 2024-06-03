@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+    Inicio
+    {% endblock %}
+
+{% block link%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/inicio.css')}}">
+{%endblock %}
+
+{% block main %}
+<h1 style="color:rgb(236, 27, 27)">Formulario</h1>
+    <form action="post">
+        <label for="user">Ingrese Usuario</label>
+        <input type="text" name="user">
+        <label for="psw">Ingrese Contraseña</label>
+        <input type="password" name="psw">
+        <input type="submit">
+    </form>
+
+<style>
+    h1{
+        color: blueviolet;
+    }
+</style>
+
+    {%endblock%}

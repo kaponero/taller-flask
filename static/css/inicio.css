@@ -1,0 +1,44 @@
+*{margin: 0;
+padding: 0;}
+
+h1{
+    color: yellow;
+}
+
+nav{
+    text-align: center;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    position: relative;
+}
+
+nav ul ul{
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    display: none;
+}
+ nav ul ul ul{
+    position: absolute;
+    top:0%;
+    left:100%
+ }
+
+
+ nav ul li:hover > ul{
+    display: block;
+ }
+
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+}
+nav ul ul{
+}

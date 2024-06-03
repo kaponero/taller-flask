@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    --rojo:rgb(121, 10, 10);
+}
+
+header nav{
+    background-color: cornflowerblue;
+}
+
+header ul{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+header li{
+    padding: 0 10px;
+    list-style-type:none;
+}
+
+header li a{
+    text-decoration:none;
+    color: bisque;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header li a:hover{
+    color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+main{
+    background-color: rgb(243, 232, 232);
+    height:90vh;
+}
+
+#titulos h1, #titulos h6{
+    display:inline-block;
+}
+
+h1{
+    background-color: var(--rojo);
+    color: var(aqua);
+
+}
+
+h6{
+    background-color: azure;
+    padding: 10px 20px 10px 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serifs;
+    font-style: italic;
+    text-align: justify;
+}
+
+p{
+    text-align: center;
+}
+
+footer{
+    background-color: cornflowerblue;
+    height: 30px;
+}
+
+footer p{
+    font-size: 20px;
+    color: beige;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform:uppercase;
+}

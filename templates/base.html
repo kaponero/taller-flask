@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block titulo %}
+    
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="">Inicio</a></li>
+            <li>
+                <a href="">Nosotros</a>
+                <ul>
+                    <li>
+                        <a href="">Historia</a>
+                    </li>
+                    <li>
+                        <a href="">Integrantes</a>
+                        <ul>
+                            <li>Ingrid</li>
+                            <li>Carli</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="">Login</a></li>
+        </ul>
+    </nav>   
+
+        {% block main %}
+    {% endblock %}
+</body>
+</html>
