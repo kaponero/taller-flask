@@ -91,8 +91,76 @@
 ### Método de herencia
      {% extends "base.html" %}
   Al principio del fichero html hijo
+## 7 - Formularios
+### Acceder a los datos de una petision GET en Flask
+    from flask import request
+    @app.route("/")
+    def index():
+        usuario = request.args.get('user')
+        contraseña = request.args.get('psw')
+### Methods POST
+    @app.route("/", methods=["GET", "POST"])
+### Petision POST
+    from flask import render_template, request, redirect, url_for
 
+    @app.route("/inicio/", methods=["GET", "POST"])
+    def inicio():
+    if request.method == 'POST':
+        user = request.form['user']
+        password = request.form['psw']
 
+        return redirect(url_for('inicio'))
+    return render_template("inicio.html")
+## Formularios con Flask-WTF
+### Instalar Flask-WTF
+    pip install Flask-WTF
+    pip install email-validator
+### Formulario usando Flask-WTF en forms.py
+    from flask_wtf import FlaskForm
+    from wtforms import StringField, SubmitField, PasswordField
+    from wtforms.validators import DataRequired
 
+    class SignupForm(FlaskForm):
+        user = StringField('Usuario', validators=[DataRequired()])
+        password = PasswordField('Password', validators=[DataRequired()])
+        submit = SubmitField('Login')
+### Plantilla para el formulario
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.user.label }}
+            {{ form.user }}
+            {% for error in form.name.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+### Procesar el formulario
+    from forms import SignupForm
+
+    @app.route("/inicio/", methods=["GET", "POST"])
+    def inicio():
+        form = SignupForm()
+        if form.validate_on_submit():
+            user = form.user.data
+            password = form.password.data
+
+        return redirect(url_for('inicio'))
+    return render_template("inicio.html", form=form)
+### Configurar token contra ataques CSRF
+    import secrets
+
+    app = Flask( __name__)
+    app.config['SECRET_KEY'] = secrets.token_hex(32)
 
 
