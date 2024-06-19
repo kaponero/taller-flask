@@ -16,20 +16,17 @@
 
     {{ form.user.label }}
     {{ form.user }}
-    {% for error in form.user.error  %}
+    {% for error in form.user.errors  %}
         <span style="color:red">{{error}}</span>
     {% endfor %}
 
     {{ form.psw.label }}
     {{ form.psw }}
-    {% for error in form.psw.error  %}
+    {% for error in form.psw.errors  %}
         <span style="color:red">{{error}}</span>
     {% endfor %}
     {{form.submit()}}
 </form>
-
-
-
 
 <!--
     <form action="/inicio/" method="post">
