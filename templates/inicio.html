@@ -10,13 +10,37 @@
 
 {% block main %}
 <h1 style="color:rgb(236, 27, 27)">Formulario</h1>
+
+<form action="/inicio/" method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    {{ form.user.label }}
+    {{ form.user }}
+    {% for error in form.user.error  %}
+        <span style="color:red">{{error}}</span>
+    {% endfor %}
+
+    {{ form.psw.label }}
+    {{ form.psw }}
+    {% for error in form.psw.error  %}
+        <span style="color:red">{{error}}</span>
+    {% endfor %}
+    {{form.submit()}}
+</form>
+
+
+
+
+<!--
     <form action="/inicio/" method="post">
         <label for="user">Ingrese Usuario</label>
-        <input type="text" name="user">
+        <input type="text" name="user" required>
         <label for="psw">Ingrese Contraseña</label>
-        <input type="password" name="psw">
+        <input type="password" name="psw" required>
         <input type="submit">
     </form>
+-->
+    <h1></h1>
 <style>
     h1{
         color: blueviolet;
